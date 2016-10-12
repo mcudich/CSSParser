@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/katana-parser"]
+	path = Carthage/Checkouts/katana-parser
+	url = https://github.com/mcudich/katana-parser.git

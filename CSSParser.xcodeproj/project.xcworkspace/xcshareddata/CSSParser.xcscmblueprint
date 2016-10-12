@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "99DE50B7B565133F854A09122DCC6DDD4B65BB49",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "99DE50B7B565133F854A09122DCC6DDD4B65BB49" : 9223372036854775807,
+    "2805B76DDB6FB3AFC1EC29F779C674810C8B5895" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C6718FD-6234-40EF-95A8-7884776B98E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "99DE50B7B565133F854A09122DCC6DDD4B65BB49" : "CSSParser\/",
+    "2805B76DDB6FB3AFC1EC29F779C674810C8B5895" : "CSSParser\/Carthage\/Checkouts\/katana-parser\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CSSParser",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CSSParser.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mcudich\/katana-parser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2805B76DDB6FB3AFC1EC29F779C674810C8B5895"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mcudich\/CSSParser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99DE50B7B565133F854A09122DCC6DDD4B65BB49"
+    }
+  ]
+}
