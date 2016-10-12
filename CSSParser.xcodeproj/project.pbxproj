@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D8C579201DAE185E00DC12E5 /* CSSParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C579161DAE185E00DC12E5 /* CSSParser.framework */; };
-		D8C579251DAE185E00DC12E5 /* CSSParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C579241DAE185E00DC12E5 /* CSSParserTests.swift */; };
 		D8C5793E1DAE191E00DC12E5 /* foundation.c in Sources */ = {isa = PBXBuildFile; fileRef = D8C579311DAE191E00DC12E5 /* foundation.c */; };
 		D8C5793F1DAE191E00DC12E5 /* foundation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C579321DAE191E00DC12E5 /* foundation.h */; };
 		D8C579401DAE191E00DC12E5 /* katana.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C579331DAE191E00DC12E5 /* katana.h */; };
@@ -25,6 +24,7 @@
 		D8C5794E1DAE19AA00DC12E5 /* CSSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C5794C1DAE19AA00DC12E5 /* CSSParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8C579521DAE19E600DC12E5 /* StyleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C579501DAE19E600DC12E5 /* StyleElement.swift */; };
 		D8C579531DAE19E600DC12E5 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C579511DAE19E600DC12E5 /* StyleSheet.swift */; };
+		D8C579561DAE1A9C00DC12E5 /* StyleSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C579541DAE1A9000DC12E5 /* StyleSheetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 		D8C579161DAE185E00DC12E5 /* CSSParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSSParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C5791A1DAE185E00DC12E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C5791F1DAE185E00DC12E5 /* CSSParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSSParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8C579241DAE185E00DC12E5 /* CSSParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSParserTests.swift; sourceTree = "<group>"; };
 		D8C579261DAE185E00DC12E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C579311DAE191E00DC12E5 /* foundation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = foundation.c; path = "Carthage/Checkouts/katana-parser/src/foundation.c"; sourceTree = "<group>"; };
 		D8C579321DAE191E00DC12E5 /* foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = foundation.h; path = "Carthage/Checkouts/katana-parser/src/foundation.h"; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		D8C5794C1DAE19AA00DC12E5 /* CSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSParser.h; sourceTree = "<group>"; };
 		D8C579501DAE19E600DC12E5 /* StyleElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleElement.swift; sourceTree = "<group>"; };
 		D8C579511DAE19E600DC12E5 /* StyleSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		D8C579541DAE1A9000DC12E5 /* StyleSheetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleSheetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		D8C579231DAE185E00DC12E5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D8C579241DAE185E00DC12E5 /* CSSParserTests.swift */,
+				D8C579541DAE1A9000DC12E5 /* StyleSheetTests.swift */,
 				D8C579261DAE185E00DC12E5 /* Info.plist */,
 			);
 			path = Tests;
@@ -274,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C579251DAE185E00DC12E5 /* CSSParserTests.swift in Sources */,
+				D8C579561DAE1A9C00DC12E5 /* StyleSheetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +434,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 46UKZ786J3;
-				INFOPLIST_FILE = CSSParserTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matiascudich.CSSParser.CSSParserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,7 +447,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 46UKZ786J3;
-				INFOPLIST_FILE = CSSParserTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matiascudich.CSSParser.CSSParserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
