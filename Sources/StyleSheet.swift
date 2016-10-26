@@ -401,6 +401,20 @@ public struct StyleSheet: Equatable {
     return declarationMap
   }
 
+  public func apply(to element: StyleElement) {
+    let matchingStyles = stylesForElement(element)
+    var styleSheetProperties = [String: Any]()
+    for (name, declaration) in matchingStyles {
+      styleSheetProperties[name] = declaration.value
+    }
+
+    element.apply(styles: styleSheetProperties)
+
+    for child in element.childElements ?? [] {
+      apply(to: child)
+    }
+  }
+
   private func makeSelector(_ selector: KatanaSelector) -> StyleSelector {
     let parent = selector.tagHistory == nil ? .none : makeSelector(selector.tagHistory.pointee)
 

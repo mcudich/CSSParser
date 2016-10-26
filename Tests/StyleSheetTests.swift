@@ -16,6 +16,7 @@ class TestElement: StyleElement, Equatable {
   var parentElement: StyleElement?
   var childElements: [StyleElement]?
   var attributes: [String: String]?
+  var styles: [String: Any]?
 
   var isEnabled: Bool
   var isFocused: Bool
@@ -62,6 +63,10 @@ class TestElement: StyleElement, Equatable {
 
   func equals(_ other: StyleElement) -> Bool {
     return self == (other as! TestElement)
+  }
+
+  func apply(styles: [String : Any]) {
+    self.styles = styles
   }
 }
 
@@ -438,5 +443,20 @@ class StylesheetTests: XCTestCase {
     let grandchildStyles = parsed.stylesForElement(grandchild)
     XCTAssertEqual(1, grandchildStyles.count)
     XCTAssertEqual("15", grandchildStyles["font-size"]?.value)
+  }
+
+  func testApplyStyleSheet() {
+    let sheet = "#parent { font-size: 20 } .child { font-size: 15 }"
+    let parsed = StyleSheet(string: sheet, inheritedProperties: ["font-size"])!
+
+    let parent = TestElement(id: "parent")
+    let child = TestElement(classNames: ["child"], parent: parent)
+    let grandchild = TestElement(parent: child)
+    parent.childElements = [child]
+    child.childElements = [grandchild]
+
+    parsed.apply(to: parent)
+    XCTAssertEqual("15", child.styles!["font-size"] as! String)
+    XCTAssertEqual("15", grandchild.styles!["font-size"] as! String)
   }
 }

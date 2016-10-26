@@ -21,6 +21,7 @@ public protocol StyleElement {
 
   func has(attribute: String, with value: String) -> Bool
   func equals(_ other: StyleElement) -> Bool
+  func apply(styles: [String: Any])
 }
 
 extension StyleElement {
