@@ -325,16 +325,19 @@ public struct StyleSheet: Equatable {
   public var rules = [Rule]()
 
   fileprivate let data: Data?
+  private let inheritedProperties: Set<String>
 
   public init() {
     data = nil
+    inheritedProperties = Set([])
   }
 
-  public init?(string: String) {
+  public init?(string: String, inheritedProperties: [String]? = nil) {
     guard string.characters.count > 0, let data = string.data(using: String.Encoding.utf8) else {
       return nil
     }
     self.data = data
+    self.inheritedProperties = Set(inheritedProperties ?? [])
 
     data.withUnsafeBytes { (bytes: UnsafePointer<Int8>) -> Void in
       guard let parsed = katana_parse(bytes, data.count, KatanaParserModeStylesheet) else {
@@ -379,9 +382,22 @@ public struct StyleSheet: Equatable {
     }
 
     var declarationMap = [String: StyleDeclaration]()
+    var keys = Set<String>()
     for (key, (_, declaration)) in declarations {
       declarationMap[key] = declaration
+      keys.insert(key)
     }
+    let remainingInheritedProperties = inheritedProperties.subtracting(keys)
+
+    if let parent = element.parentElement, remainingInheritedProperties.count > 0 {
+      let parentStyles = stylesForElement(parent)
+      for (property, declaration) in parentStyles {
+        if remainingInheritedProperties.contains(property) {
+          declarationMap[property] = declaration
+        }
+      }
+    }
+
     return declarationMap
   }
 
