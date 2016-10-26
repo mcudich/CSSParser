@@ -422,4 +422,21 @@ class StylesheetTests: XCTestCase {
     XCTAssertEqual(3, styles.count)
     XCTAssertEqual("300", styles["height"]?.value)
   }
+
+  func testInheritedProperties() {
+    let sheet = "#parent { font-size: 20 } .child { font-size: 15 }"
+    let parsed = StyleSheet(string: sheet, inheritedProperties: ["font-size"])!
+
+    let parent = TestElement(id: "parent")
+    let child = TestElement(classNames: ["child"], parent: parent)
+    let grandchild = TestElement(parent: child)
+
+    let childStyles = parsed.stylesForElement(child)
+    XCTAssertEqual(1, childStyles.count)
+    XCTAssertEqual("15", childStyles["font-size"]?.value)
+
+    let grandchildStyles = parsed.stylesForElement(grandchild)
+    XCTAssertEqual(1, grandchildStyles.count)
+    XCTAssertEqual("15", grandchildStyles["font-size"]?.value)
+  }
 }
