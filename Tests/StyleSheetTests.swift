@@ -41,21 +41,21 @@ class TestElement: StyleElement, Equatable {
   }
 
   func directAdjacent(of element: StyleElement) -> StyleElement? {
-    let index = childElements?.index { child in
+    let index = childElements?.firstIndex { child in
       return (child as! TestElement) == (element as! TestElement)
     }
     return childElements![index! - 1]
   }
 
   func indirectAdjacents(of element: StyleElement) -> [StyleElement] {
-    let index = childElements?.index { child in
+    let index = childElements?.firstIndex { child in
       return (child as! TestElement) == (element as! TestElement)
     }
     return Array(childElements![0..<index!])
   }
 
   func subsequentAdjacents(of element: StyleElement) -> [StyleElement] {
-    let index = childElements?.index { child in
+    let index = childElements?.firstIndex { child in
       return (child as! TestElement) == (element as! TestElement)
     }
     return Array(childElements![index! + 1..<childElements!.count])

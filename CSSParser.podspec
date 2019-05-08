@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.social_media_url = "https://twitter.com/mcudich"
 
   s.ios.deployment_target = "8.0"
+  s.swift_version    = '5.0'
 
-  s.source_files = "Sources/**/*", "Carthage/Checkouts/katana-parser/src/*"
+  s.source_files = "Sources/**/*.{swift,h}", "Carthage/Checkouts/katana-parser/src/*"
   s.public_header_files = "Sources/CSSParser.h"
 end
