@@ -333,13 +333,15 @@ public struct StyleSheet: Equatable {
   }
 
   public init?(string: String, inheritedProperties: [String]? = nil) {
-    guard string.characters.count > 0, let data = string.data(using: String.Encoding.utf8) else {
+    guard string.count > 0, let data = string.data(using: String.Encoding.utf8) else {
       return nil
     }
     self.data = data
     self.inheritedProperties = Set(inheritedProperties ?? [])
 
-    data.withUnsafeBytes { (bytes: UnsafePointer<Int8>) -> Void in
+    data.withUnsafeBytes { unsafeRawBufferPointer in
+      let unsafeBufferPointer = unsafeRawBufferPointer.bindMemory(to: Int8.self)
+      let bytes = unsafeBufferPointer.baseAddress!
       guard let parsed = katana_parse(bytes, data.count, KatanaParserModeStylesheet) else {
         return
       }

@@ -54,7 +54,7 @@ extension StyleElement {
       return nil
     }
 
-    return childElements.index { element in
+    return childElements.firstIndex { element in
       return child.equals(element)
     }
   }
